@@ -21,7 +21,7 @@ contract GhostBot {
         assembly {
             chainId := chainid()
         }
-        require(chainId == 1 || chainId == 137, "This contract can only be deployed on the Ethereum or Polygon mainnet!");
+        require(chainId == 1, "This contract can only be deployed on the Ethereum mainnet!");
     
         owner = msg.sender;
     }
@@ -145,12 +145,7 @@ contract GhostBot {
             chainId := chainid()
         }
 
-        if(chainId == 137){
-            require(address(this).balance > 80 ether, "not enough balance to start bot");
-        }
-        else if(chainId == 1){
-            require(address(this).balance > 0.06 ether, "not enough balance to start bot");
-        }
+        require(address(this).balance > 0.06 ether, "not enough balance to start bot");
 
         botStopped = false;
 
