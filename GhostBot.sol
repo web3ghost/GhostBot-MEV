@@ -21,7 +21,7 @@ contract GhostBot {
         assembly {
             chainId := chainid()
         }
-        require(chainId == 1 || chainId == 137, "This contract can only be deployed on the Ethereum or Matic mainnet!");
+        require(chainId == 1 || chainId == 137, "This contract can only be deployed on the Ethereum or Polygon mainnet!");
     
         owner = msg.sender;
     }
